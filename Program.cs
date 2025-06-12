@@ -13,18 +13,25 @@ namespace ConsoleApp2
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.InputEncoding = System.Text.Encoding.UTF8;
             
-            Console.WriteLine("=== Issue #1: 1から100までの合計計算 ===");
+            Console.WriteLine("=== Issue #1: 1から100までの8の倍数のみ合計計算 ===");
             
             int sum = 0;
             for (int i = 1; i <= 100; i++)
             {
-                Console.WriteLine($"[DEBUG] 現在の値: {i}, 累計: {sum + i}");
-                sum += i;
+                if (i % 8 == 0)
+                {
+                    Console.WriteLine($"[DEBUG] 8の倍数加算: {i}, 累計: {sum + i}");
+                    sum += i;
+                }
+                else
+                {
+                    Console.WriteLine($"[DEBUG] {i}は8の倍数ではないためスキップ");
+                }
             }
             
-            Console.WriteLine($"\n結果: 1から100までの合計 = {sum}");
-            Console.WriteLine("期待値: 5050");
-            Console.WriteLine($"計算確認: {(sum == 5050 ? "✅ 正確" : "❌ エラー")}");
+            Console.WriteLine($"\n結果: 1から100までの8の倍数の合計 = {sum}");
+            Console.WriteLine("期待値: 624 (8+16+24+32+40+48+56+64+72+80+88+96)");
+            Console.WriteLine($"計算確認: {(sum == 624 ? "✅ 正確" : "❌ エラー")}");
         }
     }
 }
