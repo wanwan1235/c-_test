@@ -13,23 +13,21 @@ namespace ConsoleApp2
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.InputEncoding = System.Text.Encoding.UTF8;
             
-            Console.WriteLine("=== Issue #2: 1から100まで（3の倍数除外）の合計計算 ===");
+            Console.WriteLine("=== Issue #3: 1から200まで（7で割り切れる数のみ）の合計計算 ===");
             
             int sum = 0;
-            for (int i = 1; i <= 100; i++)
+            for (int i = 1; i <= 200; i++)
             {
-                if (i % 3 == 0)
+                if (i % 7 == 0)
                 {
-                    Console.WriteLine($"[DEBUG] {i}は3の倍数のためスキップ");
-                    continue;
+                    Console.WriteLine($"[DEBUG] 加算: {i}, 累計: {sum + i}");
+                    sum += i;
                 }
-                Console.WriteLine($"[DEBUG] 加算: {i}, 累計: {sum + i}");
-                sum += i;
             }
             
-            Console.WriteLine($"\n結果: 1から100まで（3の倍数除外）の合計 = {sum}");
-            Console.WriteLine("期待値: 3367");
-            Console.WriteLine($"計算確認: {(sum == 3367 ? "✅ 正確" : "❌ エラー")}");
+            Console.WriteLine($"\n結果: 1から200まで（7で割り切れる数のみ）の合計 = {sum}");
+            Console.WriteLine("期待値: 2842");
+            Console.WriteLine($"計算確認: {(sum == 2842 ? "✅ 正確" : "❌ エラー")}");
         }
     }
 }
